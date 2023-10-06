@@ -57,6 +57,29 @@
 
 *Merlin*
 
+---
+
+## UPDATE
+
+Using this for reading a lot of code? I decided to fork the repository, and 
+add an option to avoid reading certain characters (`<` and `>` at the moment).
+
+This is only the case for selected text, but if I keep using the plugin I'll 
+add some options to make this usable for anyone, and probably extend it to 
+use the same exclusions on the whole page read.
+
+Watch this space.
+
+NB: The file that's been modified is:
+
+- `js/content/html-doc.js`
+
+Specifically the `ignoreTags` variable has had the `pre` tag added to it, and 
+the `getSelectedText` function has had the regex for removing `<` and `>` 
+characters added to it.
+
+---
+
 
 ## Overview
 Read Aloud is a Chrome and Firefox extension that uses text-to-speech technology to convert webpage text to audio.&nbsp; It works on a variety of websites, including news sites, blogs, fan fiction, publications, textbooks, school and class websites, online universities and course materials.

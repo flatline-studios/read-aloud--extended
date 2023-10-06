@@ -2,7 +2,9 @@
 var readAloudDoc = new function() {
   var self = this;
 
-  this.ignoreTags = "select, textarea, button, label, audio, video, dialog, embed, menu, nav, noframes, noscript, object, script, style, svg, aside, footer, #footer, .no-read-aloud";
+  this.ignoreTags = "pre, select, textarea, button, label, audio, video,"
+    + " dialog, embed, menu, nav, noframes, noscript, object, script, style, svg,"
+    + " aside, footer, #footer, .no-read-aloud";
 
   this.getCurrentIndex = function() {
     return 0;
@@ -26,7 +28,7 @@ var readAloudDoc = new function() {
     const math = await getMath()
     try {
       if (math) math.show()
-      return window.getSelection().toString().trim()
+      return window.getSelection().toString().trim().replace(/[<>]/g, "")
     }
     finally {
       if (math) math.hide()
@@ -145,6 +147,7 @@ var readAloudDoc = new function() {
       : getText(elem).split(paragraphSplitter);
     $(elem).find(".read-aloud-numbering").remove();
     toHide.show();
+    console.log('M00', texts);
     return texts;
   }
 
